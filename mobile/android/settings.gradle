@@ -1,0 +1,3 @@
+rootProject.name = 'BahaiSongBook'
+
+include ':app'
