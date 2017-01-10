@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    songs = Song.all.where("updated_at > #{params[:last_updated_at] || Date.new(2000, 1, 1)}")
+    songs = Song.all.where("updated_at > '#{params[:last_updated_at] || Time.new(2000, 1, 1)}'")
     render json: {data: songs.to_json, time: Time.now.utc}
   end
 
