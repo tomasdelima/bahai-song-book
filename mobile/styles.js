@@ -9,8 +9,9 @@ module.exports = {
       fontSize: 30,
       padding: 40
     },
-    body: {
+    stanza: {
       paddingHorizontal: 40,
+      paddingVertical: 10,
       flexDirection: 'row',
       flexWrap: 'wrap',
       alignItems: 'flex-start',
