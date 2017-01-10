@@ -8,4 +8,5 @@ const en = {
 
 module.exports = {
   pt: pt,
+  en: en,
 }

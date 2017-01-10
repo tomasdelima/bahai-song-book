@@ -29,6 +29,7 @@ module.exports = {
       text: {
         fontSize: 20,
         lineHeight: 60,
+        fontFamily: 'monospace',
       }
     },
     chord: {

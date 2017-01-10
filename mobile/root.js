@@ -14,19 +14,24 @@ import {
 const s     = require('./styles')
 const Songs = require('./songs')
 const Song  = require('./song')
+const t = require('./translations')
 
 module.exports = React.createClass({
-  getInitialState() {
+  getInitialState () {
     return {
       initialRoute: {id: 'all-songs'},
       allSongs: [],
     }
   },
-  componentDidMount() {
+  componentDidMount () {
+    this.loadTranslation('pt')
     this.listenToBackButtonPress()
     this.loadSongs().then(() => {
       this.loadSongsFromRemoteServer()
     })
+  },
+  loadTranslation (language) {
+    global.t = t[language]
   },
   loadSongsFromRemoteServer () {
     fetch('https://bahai-song-book.herokuapp.com/songs').then((response) => {

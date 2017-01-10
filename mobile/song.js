@@ -10,7 +10,6 @@ import {
 } from 'react-native'
 
 const s = require('./styles')
-const t = require('./translations').pt
 
 module.exports = React.createClass({
   getInitialState() {
@@ -33,7 +32,7 @@ module.exports = React.createClass({
     return <ScrollView>
       <View style={[]}>
         <Text style={[s.song.title]}>{this.props.song.title}</Text>
-        <Text style={[s.song.author]}>{t.by} {this.props.song.author}</Text>
+        <Text style={[s.song.author]}>{global.t.by} {this.props.song.author}</Text>
 
         {stanzas.map((stanza, i) => {
           counter += 1
