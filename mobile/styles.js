@@ -7,7 +7,13 @@ module.exports = {
     },
     title: {
       fontSize: 30,
-      padding: 40
+      padding: 40,
+      paddingBottom: 10,
+    },
+    author: {
+      fontSize: 20,
+      paddingHorizontal: 40,
+      paddingBottom: 40,
     },
     stanza: {
       paddingHorizontal: 40,
