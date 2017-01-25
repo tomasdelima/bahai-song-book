@@ -25,12 +25,18 @@ module.exports = React.createClass({
       </View>
     </TouchableHighlight>
   },
+  goTo (tabId) {
+    global.navigator.push({id: tabId, tabId: tabId})
+  },
   renderMiddleButtons (iconSize, iconColor) {
     return <View style={[s.topBar.middleButtons(iconSize)]}>
-      <TouchableHighlight underlayColor='#999' style={[s.topBar.middleButton, s.topBar[this.props.activeTab == 'all-songs' ? 'selected' : '']]}><FontAwesome name="music" size={iconSize} color={iconColor} onPress={this.props.onBackButtonPress} /></TouchableHighlight>
-      <TouchableHighlight underlayColor='#999' style={[s.topBar.middleButton, s.topBar[this.props.activeTab == 'favorites' ? 'selected' : '']]}><FontAwesome name="star"  size={iconSize} color={iconColor} onPress={this.props.onBackButtonPress} /></TouchableHighlight>
-      <TouchableHighlight underlayColor='#999' style={[s.topBar.middleButton, s.topBar[this.props.activeTab == 'new-song' ? 'selected' : '']]}><FontAwesome name="plus"  size={iconSize} color={iconColor} onPress={this.props.onBackButtonPress} /></TouchableHighlight>
+      {this.renderMiddleButton('all-songs', 'music', iconSize, iconColor)}
+      {this.renderMiddleButton('favorites', 'star',  iconSize, iconColor)}
+      {this.renderMiddleButton('new-song',  'plus',  iconSize, iconColor)}
     </View>
+  },
+  renderMiddleButton (tabId, iconName, iconSize, iconColor) {
+    return <TouchableHighlight underlayColor='#999' style={[s.topBar.middleButton, s.topBar[this.props.activeTab == tabId ? 'selected' : '']]} onPress={() => this.goTo(tabId)}><FontAwesome name={iconName} size={iconSize} color={iconColor} /></TouchableHighlight>
   },
   render () {
     var iconSize = 30

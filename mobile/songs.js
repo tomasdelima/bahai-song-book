@@ -13,7 +13,7 @@ const s = require('./styles')
 
 module.exports = React.createClass({
   goToSong (song) {
-    global.navigator.push({id: 'song', song: song})
+    global.navigator.push({id: 'song', tabId: 'all-songs', song: song})
   },
   renderInlineSong (song, i) {
     return <TouchableHighlight key={i} underlayColor='rgba(0,0,0,0.2)' onPress={() => this.goToSong(song)} >
